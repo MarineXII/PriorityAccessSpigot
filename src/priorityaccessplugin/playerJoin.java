@@ -80,11 +80,12 @@ public class playerJoin implements Listener {
         return max;
     }
     
+    //Register Player works correctly
     private void registerPlayer(Player p, Configuration cfg) {
-        if (!cfg.contains(p.getUniqueId().toString())) {
-            cfg.set("player.kickValue" + p.getUniqueId().toString(), cfg.getInt("def_kickValue"));
-            cfg.set("player.canCauseKick" + p.getUniqueId().toString(), cfg.getInt("def_canCauseKick"));
-            
+        if (!cfg.contains("player." + p.getUniqueId().toString())) {
+            cfg.set("player." + p.getUniqueId().toString() + ".kickValue", cfg.getInt("def_kickValue"));
+            cfg.set("player." + p.getUniqueId().toString() + ".canCauseKick", cfg.getInt("def_canCauseKick"));
+            plInstance.saveConfig();
             System.out.println(PREF_TEXT + p.getName() + " was not found and has been added to the config.yml file!");
         } else {
             System.out.println(PREF_TEXT + p.getName() + " was found in the config.yml");
