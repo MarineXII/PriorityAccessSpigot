@@ -1,7 +1,6 @@
 package priorityaccessplugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.*;
 
 /**
  *
@@ -9,16 +8,24 @@ import org.bukkit.*;
  */
 public class AccessMain extends JavaPlugin{
     
+    private static AccessMain plInstance;
+    
     @Override
     public void onEnable() {
+        plInstance = this;
+        
+        //Create default config.yml
+        plInstance.saveDefaultConfig();
+        
         System.out.println("Priority Access is enabled!");
-        getServer().getPluginManager().registerEvents(new playerJoin(), this);
+        getServer().getPluginManager().registerEvents(new playerJoin(plInstance), this);
     }
     
     @Override
     public void onDisable() {
         System.out.println("Priority Access is disabled!");
     }
-    
-
 }
+
+//TODO
+//Add commands to change whether a player can be kicked or can cause kick

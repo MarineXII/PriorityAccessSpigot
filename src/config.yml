@@ -1,0 +1,11 @@
+#Buffer size is the total player slots that you would like to allocate to act as a buffer.
+#*The buffer is used to allow a player to join so the plugin can perform kick functionality.
+#*Note that the result is that your server max capacity is decreased by the buffer size.
+#*ie. if the buffer is 5 on a server of max players 140, the 'actual' max would be 135 players.
+
+#def_kickValue is the default value for if the player can be kicked. (1 for yes, 0 for no)
+#def_canCauseKick is the default value for if the player can cause another that is already connected to be kicked. (1 for yes, 0 for no)
+
+buffer-size: 2
+def_kickValue: 1
+def_canCauseKick: 0
