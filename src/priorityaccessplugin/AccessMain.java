@@ -19,6 +19,9 @@ public class AccessMain extends JavaPlugin{
         
         System.out.println("Priority Access is enabled!");
         getServer().getPluginManager().registerEvents(new playerJoin(plInstance), this);
+        
+        //Set executors for commands
+        getCommand("priorityaccess").setExecutor(new setKickValue(this));
     }
     
     @Override
